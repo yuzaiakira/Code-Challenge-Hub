@@ -1,0 +1,39 @@
+@import "tailwindcss";
+html{
+    direction: rtl;
+}
+body{
+  @apply bg-[#111827] flex-col font-display flex items-center justify-center text-white min-h-screen;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../public/fonts/Kalame/Kalame-Regular.ttf") format("truetype");
+}
+@theme {
+    --font-display: "Kalame";
+}
+@layer base{
+   .input_class{
+     @apply p-3 border-2 border-gray-700 outline-0 transition-all rounded-lg focus:border-gray-500 w-full text-[0.8rem];
+   }
+   .input_parent{
+    @apply bg-[#333C4C] relative rounded-[0.8rem] w-[90%] mx-auto;
+   }
+   .circles{
+    @apply w-[15rem] absolute opacity-20 h-[15rem] blur-[120px] rounded-full; 
+   }
+   .file_item{
+    @apply w-full flex gap-2 rounded-lg p-2 bg-[#333C4C] cursor-pointer
+   }
+   .file_item a {
+    @apply flex w-full justify-between gap-3
+   }
+   .list_btn{
+    @apply font-bold rounded-2xl w-10 flex items-center justify-center
+   }
+}
+@layer components{
+   .button{
+    @apply bg-purple-600 transition-all hover:opacity-85 w-full text-white cursor-pointer rounded-lg p-3
+   }
+}
