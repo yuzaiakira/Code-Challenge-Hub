@@ -1,12 +1,22 @@
-from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 
+from challenge.forms import QuestionForm 
+from challenge.models import Question
 
-class HomeView(LoginRequiredMixin, TemplateView):
+
+class HomeView(LoginRequiredMixin, CreateView):
     template_name = 'challenge/home.html'
+    model = Question
+    form_class = QuestionForm
+    success_url = '/'
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class LoginView(LoginView):
