@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView
+from django.views.generic import DeleteView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
@@ -35,3 +36,11 @@ class LogoutView(LogoutView):
     def get_success_url(self):
         return reverse_lazy('home')
 
+
+class QuestionDeleteView(DeleteView):
+    model = Question
+    template_name = 'challenge/confirm.html' 
+    success_url = reverse_lazy('home') 
+    
+    def get_queryset(self):
+        return self.model.objects.filter(user=self.request.user)

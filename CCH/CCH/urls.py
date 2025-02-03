@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from challenge.views import HomeView, LoginView, LogoutView
+from challenge.views import HomeView, LoginView, LogoutView, QuestionDeleteView
 
 
 urlpatterns = [
@@ -25,4 +25,6 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('login', LoginView.as_view(), name='login'),
     path('logout', LogoutView.as_view(), name='logout'),
+    path('delete/<pk>', QuestionDeleteView.as_view(), name='question_delete'),
+    
 ]

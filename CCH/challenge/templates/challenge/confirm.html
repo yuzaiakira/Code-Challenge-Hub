@@ -4,13 +4,17 @@
   <!-- Confirm Box -->
   <section class="bg-[#242A38] w-[80%] md:w-[30%] p-5 font-bold h-auto rounded-2xl">
     <h4 class="text-[1.1rem] text-center">آیا از حذف فایل اطمینان دارید ؟</h4>
-    <div class="flex items-center mt-10 justify-center gap-3">
-     <button class="w-[50%] bg-purple-500 p-2 rounded-xl">تایید</button>
-     <button class="w-[50%] bg-red-500 rounded-xl p-2">لغو</button>
-    </div>
-   </section>
+    <form method="post">  <!-- Add the form element here -->
+      {% csrf_token %}  <!-- Include CSRF token for security -->
+      <div class="flex items-center mt-10 justify-center gap-3">
+        <input class="w-[50%] bg-purple-500 p-2 rounded-xl" type="submit" value="تایید">
+        <a class="w-[50%] bg-red-500 rounded-xl p-2 text-center" href="{% url 'home' %}">لغو</a>
+      </div>
+    </form>
+  </section>
   <!-- Confirm Box -->
   <!-- Blured circles -->
   <div class="circles top-[30rem] md:top-[20rem] right-5 bg-red-500"></div>
   <div class="circles top-10 left-10 bg-blue-500"></div>
 {% endblock %}
+
