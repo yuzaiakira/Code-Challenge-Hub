@@ -7,8 +7,8 @@ from challenge.utils import generate_file_name
 # Create your models here.
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(null=True)
-    file = models.FieldFile(upload_to=generate_file_name)
+    name = models.CharField(max_length=255, null=True)
+    file = models.FileField(upload_to=generate_file_name)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
