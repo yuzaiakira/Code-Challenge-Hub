@@ -36,4 +36,14 @@ body{
    .button{
     @apply bg-purple-600 transition-all hover:opacity-85 w-full text-white cursor-pointer rounded-lg p-3
    }
+   .button:active{
+    box-shadow: 0 5px rgb(48, 48, 48);
+    transform: translateY(5px);
+   }
+   .shadow-custom{
+    box-shadow: 0 8px #333C4C;
+   }
+   .error{
+     @apply bg-red-400 rounded-md w-[90%] mx-auto
+   }
 }
